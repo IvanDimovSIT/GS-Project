@@ -4,22 +4,17 @@ class Wall extends Box{
     }
 
     draw(ctx, canvas, relativeTo){
+        const offsetX = canvas.width/2 - relativeTo.x;
+        const offsetY = canvas.height/2 - relativeTo.y;
+
         ctx.beginPath();
         ctx.lineWidth = 8;
         ctx.strokeStyle = "rgb(0,0,0)";
+        ctx.fillStyle = "rgb(150,90,90)";
         
-        const brickImage = new Image();
-        brickImage.src = "assets/brick.jpeg";
-        const patternBrush = ctx.createPattern(brickImage,"repeat");
-        
-        ctx.setTransform( 1, 0, 0, 1,
-            this.x - relativeTo.x + canvas.width/2,
-            this.y - relativeTo.y + canvas.height/2);
-        ctx.fillStyle = patternBrush;        
-        ctx.rect(0,0,this.width,this.height);
+        ctx.rect(this.x + offsetX, this.y + offsetY,this.width,this.height);
         ctx.fill();
         ctx.stroke();
-        ctx.setTransform( 1, 0, 0, 1, 0, 0 );
     }
 
 }

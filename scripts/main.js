@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+
 const walls = [
     new Wall( 5, 250, 100, 100),
     new Wall( 230, 300, 200, 100),
@@ -40,7 +41,6 @@ function main(){
         }
     }
 
-    console.log("player:",player);
     player.simulate();
 
     walls.forEach(i =>{
@@ -79,7 +79,7 @@ function main(){
 
     //draw decorations
     decorations.forEach(i => {
-        if(i.overlap(screen)){
+    if(i.overlap(screen)){
             drawCount += 1;
             i.draw(ctx, canvas, focusPoint);
         }
@@ -105,7 +105,7 @@ function main(){
         }
     });
 
-    if(isMouseDown){
+    if(isMouseDown && !player.falling){
         drawJumpBar(ctx, canvas, mousePos, player.jump);
     }
 
