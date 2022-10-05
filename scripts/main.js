@@ -15,7 +15,17 @@ const walls = [
 ];
 
 const decorations = [
-    new Cloud(5, 0, 200, 100, Math.PI/6)
+    new Cloud(5, 0, 200, 100, Math.PI/6),
+    new Cloud(1900, 450, 200, 120, -Math.PI/12),
+    new Cloud(1800, 500, 100, 50, Math.PI/8),
+    new Cloud(2100, 480, 50, 40, Math.PI/3)
+];
+
+let coins = [
+    new Coin(100, 50),
+    new Coin(1200, 700),
+    new Coin(1800, 800),
+    new Coin(2400, 600)
 ];
 
 //objects overlaping with the screen will be drawn
@@ -36,6 +46,22 @@ function main(){
     walls.forEach(i =>{
         player.hit(i);
     });
+
+    let collectedCoins = [];
+    coins.forEach(i => {
+        if(i.overlap(player)){
+            collectedCoins.push(i);
+            player.score += 1;
+        }
+    });
+
+    collectedCoins.forEach(i => {
+        const ind = coins.indexOf(i);
+        if (ind != -1) { 
+            coins.splice(ind, 1);
+        }
+    });
+
     //graphics code
     let drawCount = 0;
     //update canvas dimensions to match the window
@@ -51,6 +77,7 @@ function main(){
     screen.width = canvas.width;
     screen.height = canvas.height;
 
+    //draw decorations
     decorations.forEach(i => {
         if(i.overlap(screen)){
             drawCount += 1;
@@ -58,10 +85,19 @@ function main(){
         }
     });
 
+    //draw coins
+    coins.forEach(i => {
+        if(i.overlap(screen)){
+            drawCount += 1;
+            i.draw(ctx, canvas, focusPoint);
+        }
+    });
 
+    //draw the player
     drawCount += 1;
     player.draw(ctx, canvas, focusPoint);
     
+    //draw walls
     walls.forEach(i =>{
         if(i.overlap(screen)){
             drawCount += 1;
@@ -73,6 +109,7 @@ function main(){
         drawJumpBar(ctx, canvas, mousePos, player.jump);
     }
 
+    drawScore(ctx, canvas, player.score);
     console.log("drawing: ", drawCount, " objects");
 }
 

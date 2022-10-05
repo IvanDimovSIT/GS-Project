@@ -12,6 +12,8 @@ class Player extends Box{
         this.falling = true;
         this.jump = 0;
         this.lastAngle = 0;
+        this.score = 0;
+        this.trail = new Trail();
     }
 
     setVelocity(vec){
@@ -66,8 +68,11 @@ class Player extends Box{
             }
             
             this.lastAngle = angle;
+            this.trail.reset();
         }else{
             angle = this.lastAngle;
+            this.trail.addPoint(new Vector(this.x+this.width/2, this.y+this.height));
+            this.trail.draw(ctx, canvas, relativeTo);
         }
         
         //points after rotation
@@ -161,4 +166,4 @@ class Player extends Box{
 
 }
 
-const player = new Player(10, 10, 60, 120);
+const player = new Player(0, 0, 60, 120);

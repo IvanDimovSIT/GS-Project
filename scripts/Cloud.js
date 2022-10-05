@@ -1,7 +1,7 @@
 class Cloud extends Box{
     constructor(x, y, radiusX, radiusY, angle){
         const larger = radiusX>radiusY?radiusX:radiusY;
-        super(x,y,larger,larger);
+        super(x,y,larger*2,larger*2);
         this.angle = angle;
         this.radiusX = radiusX;
         this.radiusY = radiusY;
@@ -20,7 +20,7 @@ class Cloud extends Box{
             this.x - relativeTo.x + canvas.width/2,
             this.y - relativeTo.y + canvas.height/2);
         ctx.fillStyle = patternBrush;        
-        ctx.ellipse(0,0,this.radiusX, this.radiusY, this.angle, 0, 2*Math.PI);
+        ctx.ellipse(this.radiusX,this.radiusY,this.radiusX, this.radiusY, this.angle, 0, 2*Math.PI);
         ctx.fill();
         ctx.stroke();
         ctx.setTransform( 1, 0, 0, 1, 0, 0 );
