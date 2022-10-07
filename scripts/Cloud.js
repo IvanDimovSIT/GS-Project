@@ -15,9 +15,9 @@ class Cloud extends Box{
         ctx.strokeStyle = "rgb(0,0,0)";
         
         const gradient = ctx.createLinearGradient(0,0,0,this.radiusY*2);
-        gradient.addColorStop(0, "rgb(255,255,255)");
-        gradient.addColorStop(0.2, "rgb(200,200,240)");
-        gradient.addColorStop(1, "rgb(100,100,220)");
+        gradient.addColorStop(0, "rgb(200,50,20)");
+        gradient.addColorStop(0.2, "rgb(195,40,20)");
+        gradient.addColorStop(1, "rgb(70,40,20)");
         
         ctx.setTransform( 1, 0, 0, 1,
             this.x - relativeTo.x + canvas.width/2,
