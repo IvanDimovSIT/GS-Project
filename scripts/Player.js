@@ -1,7 +1,7 @@
 const MAX_VELOCITY = 20;
 const AIR_RESISTENCE = 0.05;
 const GRAVITY_STRENGTH = 0.5;
-const JUMP_INCREASE = 0.02;
+const JUMP_INCREASE = 0.03;
 const MAX_JUMP = 50;
 
 class Player extends Box{

@@ -5,28 +5,33 @@ canvas.height = window.innerHeight;
 
 
 const walls = [
-    new Wall( 5, 250, 100, 100),
-    new Wall( 230, 300, 200, 100),
-    new Wall(-40, 800, 500, 200),
-    new Wall(-300, 1120, 1500, 80),
-    new Wall( 1300, 1000, 1500, 80),
-    new Wall( 2900, 900, 700, 80),
-    new Wall( 3700, 800, 500, 160),
-    new Wall( 4550, 600, 400, 160)
+    new Wall( -600, 250, 1200, 200),
+    new Wall( -1200, -50, 600, 500),
+    new Wall(600, -50, 600, 500),
+    new Wall(-350, -220, 650, 80),//middle
+    new Wall( -1300, -2000, 100, 2100),//side walls
+    new Wall( 1200, -2000, 100, 2100),//
+    new Wall( -1000, -500, 600, 80),
+    new Wall( -100, -700, 600, 80),
+    new Wall( 600, -950, 600, 80),
+    new Wall( -600, -1150, 600, 80),
+    new Wall( -1200, -1250, 500, 40),
+    new Wall( -700, -1600, 1500, 80)//end area1
 ];
 
 const decorations = [
-    new Cloud(5, 0, 200, 100, Math.PI/6),
-    new Cloud(1900, 450, 200, 120, -Math.PI/12),
-    new Cloud(1800, 500, 100, 50, Math.PI/8),
-    new Cloud(2100, 480, 50, 40, Math.PI/3)
+    new Cloud(100, -450, 200, 100, Math.PI/6),
+    new Cloud(200, -1200, 300, 200, Math.PI/10)
 ];
 
 let coins = [
-    new Coin(100, 50),
-    new Coin(1200, 700),
-    new Coin(1800, 800),
-    new Coin(2400, 600)
+    new Coin(0, -350),
+    new Coin(0, -800),
+    new Coin(-550, -1300),
+    new Coin(650, -1150),
+    new Coin(-500, -1750),
+    new Coin(-300, -1750),
+    new Coin(-400, -1900)
 ];
 
 //objects overlaping with the screen will be drawn
@@ -44,7 +49,9 @@ function main(){
     player.simulate();
 
     walls.forEach(i =>{
-        player.hit(i);
+        if(i.overlap(screen)){
+            player.hit(i);
+        }
     });
 
     let collectedCoins = [];

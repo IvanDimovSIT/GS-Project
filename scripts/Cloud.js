@@ -8,7 +8,6 @@ class Cloud extends Box{
         this.radiusY = radiusY;
     }
 
-
     draw(ctx, canvas, relativeTo){
 
         ctx.beginPath();
