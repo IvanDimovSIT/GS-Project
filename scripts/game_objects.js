@@ -6,6 +6,7 @@ canvas.height = window.innerHeight;
 const wallImage = new Image();
 wallImage.src = "assets/wall.png";
 const wallPattern = ctx.createPattern(wallImage, "repeat");
+
 const wallImage2 = new Image();
 wallImage2.src = "assets/wall2.png";
 const wallPattern2 = ctx.createPattern(wallImage2, "repeat");
@@ -48,5 +49,5 @@ let coins = [
     new Coin(2600, -2200)
 ];
 
-//objects overlaping with the screen will be drawn
+//only objects overlaping with the screen will be drawn
 const screen = new Box(0,0, canvas.width, canvas.height);
