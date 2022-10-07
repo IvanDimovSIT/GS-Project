@@ -3,20 +3,24 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+const wallImage = new Image();
+wallImage.src = "assets/wall.png";
+const wallPattern = ctx.createPattern(wallImage, "repeat");
+
 
 const walls = [
-    new Wall( -600, 250, 1200, 200),
-    new Wall( -1200, -50, 600, 500),
-    new Wall(600, -50, 600, 500),
-    new Wall(-350, -220, 650, 80),//middle
-    new Wall( -1300, -2000, 100, 2100),//side walls
-    new Wall( 1200, -2000, 100, 2100),//
-    new Wall( -1000, -500, 600, 80),
-    new Wall( -100, -700, 600, 80),
-    new Wall( 600, -950, 600, 80),
-    new Wall( -600, -1150, 600, 80),
-    new Wall( -1200, -1250, 500, 40),
-    new Wall( -700, -1600, 1500, 80)//end area1
+    new Wall( -600, 250, 1200, 200, wallPattern),
+    new Wall( -1200, -50, 600, 500, wallPattern),
+    new Wall(600, -50, 600, 500, wallPattern),
+    new Wall(-350, -220, 650, 80, wallPattern),//middle
+    new Wall( -1300, -2000, 100, 2100, wallPattern),//side walls
+    new Wall( 1200, -2000, 100, 2100, wallPattern),//
+    new Wall( -1000, -500, 600, 80, wallPattern),
+    new Wall( -100, -700, 600, 80, wallPattern),
+    new Wall( 600, -950, 600, 80, wallPattern),
+    new Wall( -600, -1150, 600, 80, wallPattern),
+    new Wall( -1200, -1250, 500, 40, wallPattern),
+    new Wall( -700, -1600, 1500, 80, wallPattern)//end area1
 ];
 
 const decorations = [
@@ -49,9 +53,7 @@ function main(){
     player.simulate();
 
     walls.forEach(i =>{
-        if(i.overlap(screen)){
-            player.hit(i);
-        }
+        player.hit(i);
     });
 
     let collectedCoins = [];
