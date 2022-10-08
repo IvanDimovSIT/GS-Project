@@ -42,7 +42,7 @@ function main(){
                 player.score = 0;
             }
             player.goToPoint(player.lastSavePoint);
-            screenBlur.begin();   
+            screenBlur.begin(); 
         }
     });
     
@@ -55,7 +55,7 @@ function main(){
     //center the screen on this point
     let focusPoint = new Vector(player.x+player.width/2, player.y+player.height/2);
 
-    screenBlur.draw(ctx, canvas);
+    screenBlur.draw(ctx);
 
     clear(ctx, canvas, focusPoint);
 
@@ -113,9 +113,8 @@ function main(){
         drawJumpBar(ctx, canvas, mousePos, player.jump);
     }
 
-    drawScore(ctx, canvas, player.score);
+    drawScore(player.score);
     console.log("drawing: ", drawCount, " objects");
-    
 }
 
 //for testing
