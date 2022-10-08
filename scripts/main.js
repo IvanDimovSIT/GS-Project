@@ -45,7 +45,7 @@ function main(){
             screenBlur.begin();   
         }
     });
-
+    
     /////////////////////////graphics code////////////////////////
     let drawCount = 0;
     //update canvas dimensions to match the window
@@ -100,7 +100,7 @@ function main(){
         }
     });
 
-    
+    //draw save points
     savePoints.forEach(i => {
         if(i.overlap(screen)){
             drawCount += 1;
@@ -115,7 +115,17 @@ function main(){
 
     drawScore(ctx, canvas, player.score);
     console.log("drawing: ", drawCount, " objects");
+    
 }
+
+//for testing
+document.addEventListener("keydown", event => {
+    if(event.key == 'g'){
+        let newX = parseInt(prompt("x:"));
+        let newY = parseInt(prompt("y:"));
+        player.goToPoint(new Vector(newX, newY));
+    }
+});
 
 window.onload = function() {
     const startGame = setInterval(main, 1000/60);

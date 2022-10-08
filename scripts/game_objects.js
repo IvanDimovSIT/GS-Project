@@ -18,7 +18,7 @@ const walls = [
     new Wall(600, -50, 600, 500, wallPattern),
     new Wall(-350, -220, 650, 80, wallPattern),//middle
     new Wall( -1300, -2000, 100, 2100, wallPattern),//side walls
-    new Wall( -1300, -4100, 100, 2100, wallPattern),//side walls
+    new Wall( -1300, -4100, 100, 2100, wallPattern2),//side walls
     new Wall( 1200, -2000, 100, 2100, wallPattern),//side walls
     new Wall( -1000, -500, 600, 80, wallPattern),
     new Wall( -100, -700, 600, 80, wallPattern),
@@ -28,7 +28,14 @@ const walls = [
     new Wall( -700, -1600, 1500, 80, wallPattern),//end area1
     new Wall( 500, -1800, 700, 200, wallPattern),
     new Wall( 1200, -2000, 900, 200, wallPattern2),//area2 start
-    new Wall( 2400, -2000, 1100, 200, wallPattern2)
+    new Wall( 2400, -2000, 1100, 200, wallPattern2),
+    new Wall( 3500, -2200, 800, 400, wallPattern2),
+    new Wall( 3700, -2700, 600, 100, wallPattern2),
+    new Wall( 4300, -4000, 200, 2600, wallPattern2),//side wall
+    new Wall( 2400, -2500, 900, 100, wallPattern2),
+    new Wall( 1300, -2600, 600, 200, wallPattern2),
+    new Wall( 600, -2900, 600, 400, wallPattern2),//savepoint2
+    new Wall(-400, -3200, 500, 800, wallPattern2)
 ];
 
 const decorations = [
@@ -46,17 +53,30 @@ let coins = [
     new Coin(-300, -1750),
     new Coin(-400, -1900),
     new Coin(1800, -2200),
-    new Coin(2600, -2200)
+    new Coin(2600, -2200),
+    new Coin(3800, -2500),
+    new Coin(3900, -2800),
+    new Coin(2500, -2700),
+    new Coin(2200, -2800),
+    new Coin(1300, -2900),
+    new Coin(400, -3200)
 ];
 
 const saws = [
     new Saw(2100, -1900),
     new Saw(2200, -1900),
-    new Saw(2300, -1900)
+    new Saw(2300, -1900),
+    new Saw(1200, -2750),
+    new Saw(500, -2800),
+    new Saw(400, -2800),
+    new Saw(300, -2800),
+    new Saw(200, -2800),
+    new Saw(100, -2800)
 ];
 
 const savePoints = [
-    new SavePoint(1200, -2400)
+    new SavePoint(1200, -2400),
+    new SavePoint(600, -3300)
 ];
 
 const screenBlur = new ScreenBlur();
