@@ -14,6 +14,7 @@ class Player extends Box{
         this.lastAngle = 0;
         this.score = 0;
         this.trail = new Trail();
+        this.lastSavePoint = new Vector(0,0);
     }
 
     setVelocity(vec){

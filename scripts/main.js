@@ -71,6 +71,14 @@ function main(){
         }
     });
 
+    //draw saws
+    saws.forEach(i=>{
+        if(i.overlap(screen)){
+            drawCount += 1;
+            i.draw(ctx, canvas, focusPoint);
+        }
+    });
+
     if(isMouseDown && !player.falling){
         drawJumpBar(ctx, canvas, mousePos, player.jump);
     }
