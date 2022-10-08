@@ -28,7 +28,23 @@ function main(){
         }
     });
 
-    //graphics code
+    savePoints.forEach(i => {
+        if(i.overlap(player)){
+            player.lastSavePoint = new Vector(i.x+i.width/2, i.y);
+        }
+    });
+
+    saws.forEach(i => {
+        if(i.overlap(player)){
+            player.score -= Saw.PENALTY;
+            if(player.score <0){
+                player.score = 0;
+            }
+            player.goToPoint(player.lastSavePoint);   
+        }
+    });
+
+    /////////////////////////graphics code////////////////////////
     let drawCount = 0;
     //update canvas dimensions to match the window
     canvas.width = window.innerWidth;
@@ -78,6 +94,15 @@ function main(){
             i.draw(ctx, canvas, focusPoint);
         }
     });
+
+    
+    savePoints.forEach(i => {
+        if(i.overlap(screen)){
+            drawCount += 1;
+            i.draw(ctx, canvas, focusPoint);
+        }
+    });
+    
 
     if(isMouseDown && !player.falling){
         drawJumpBar(ctx, canvas, mousePos, player.jump);

@@ -55,5 +55,9 @@ const saws = [
     new Saw(2300, -1900)
 ];
 
+const savePoints = [
+    new SavePoint(1200, -2400)
+];
+
 //only objects overlaping with the screen will be drawn
 const screen = new Box(0,0, canvas.width, canvas.height);

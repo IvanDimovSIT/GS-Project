@@ -1,5 +1,6 @@
 class Saw extends Box{
     static LAST_FRAME = 50;
+    static PENALTY = 1;
     constructor(x,y){
         super(x,y, 100, 100);
         this.currentFrame = 0;

@@ -165,6 +165,15 @@ class Player extends Box{
         }
     }
 
+    goToPoint(p){
+        this.x = p.x;
+        this.y = p.y;
+        this.velocity.x = 0;
+        this.velocity.y = 0;
+        this.falling = true;
+        this.lastAngle = 0;
+    }
+
 }
 
 const player = new Player(0, 0, 60, 120);
