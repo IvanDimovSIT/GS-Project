@@ -45,7 +45,7 @@ let coins = [
     new Coin(-500, -1750),
     new Coin(-300, -1750),
     new Coin(-400, -1900),
-    new Coin(1400, -2200),
+    new Coin(1800, -2200),
     new Coin(2600, -2200)
 ];
 

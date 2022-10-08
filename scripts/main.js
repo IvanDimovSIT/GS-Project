@@ -31,6 +31,7 @@ function main(){
     savePoints.forEach(i => {
         if(i.overlap(player)){
             player.lastSavePoint = new Vector(i.x+i.width/2, i.y);
+            i.active = true;
         }
     });
 
