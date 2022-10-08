@@ -40,7 +40,8 @@ function main(){
             if(player.score <0){
                 player.score = 0;
             }
-            player.goToPoint(player.lastSavePoint);   
+            player.goToPoint(player.lastSavePoint);
+            screenBlur.begin();   
         }
     });
 
@@ -52,6 +53,9 @@ function main(){
     
     //center the screen on this point
     let focusPoint = new Vector(player.x+player.width/2, player.y+player.height/2);
+
+    screenBlur.draw(ctx, canvas);
+
     clear(ctx, canvas, focusPoint);
 
     screen.x = focusPoint.x - canvas.width/2;
