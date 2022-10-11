@@ -1,10 +1,10 @@
-const MAX_VELOCITY = 20;
-const AIR_RESISTENCE = 0.05;
-const GRAVITY_STRENGTH = 0.5;
-const JUMP_INCREASE = 0.03;
-const MAX_JUMP = 50;
-
 class Player extends Box{
+    static MAX_VELOCITY = 20;
+    static AIR_RESISTENCE = 0.05;
+    static GRAVITY_STRENGTH = 0.5;
+    static JUMP_INCREASE = 0.03;
+    static MAX_JUMP = 50;
+
 
     constructor(x, y, width, height){
         super(x,y,width,height);
@@ -111,31 +111,31 @@ class Player extends Box{
 
     simulate(){
         if(this.falling){
-            this.velocity.add(0, GRAVITY_STRENGTH);
+            this.velocity.add(0, Player.GRAVITY_STRENGTH);
             if(this.velocity.x>0){
-                if(this.velocity.x-AIR_RESISTENCE<0){
+                if(this.velocity.x-Player.AIR_RESISTENCE<0){
                     this.velocity.x = 0;
                 }else{
-                    this.velocity.add(-AIR_RESISTENCE,0);
+                    this.velocity.add(-Player.AIR_RESISTENCE,0);
                 }
             }else if(this.velocity.x<0){
-                if(this.velocity.x+AIR_RESISTENCE>0){
+                if(this.velocity.x+Player.AIR_RESISTENCE>0){
                     this.velocity.x = 0;
                 }else{
-                    this.velocity.add(AIR_RESISTENCE,0);
+                    this.velocity.add(Player.AIR_RESISTENCE,0);
                 }
             }
 
-            if(this.velocity.x>MAX_VELOCITY){
-                this.velocity.x = MAX_VELOCITY;
-            }else if(this.velocity.x<-MAX_VELOCITY){
-                this.velocity.x = -MAX_VELOCITY;
+            if(this.velocity.x>Player.MAX_VELOCITY){
+                this.velocity.x = Player.MAX_VELOCITY;
+            }else if(this.velocity.x<-Player.MAX_VELOCITY){
+                this.velocity.x = -Player.MAX_VELOCITY;
             }
             
-            if(this.velocity.y>MAX_VELOCITY){
-                this.velocity.y = MAX_VELOCITY;
-            }else if(this.velocity.y < -MAX_VELOCITY){
-                this.velocity.y = -MAX_VELOCITY;
+            if(this.velocity.y>Player.MAX_VELOCITY){
+                this.velocity.y = Player.MAX_VELOCITY;
+            }else if(this.velocity.y < -Player.MAX_VELOCITY){
+                this.velocity.y = -Player.MAX_VELOCITY;
             }
             
             this.x += this.velocity.x;

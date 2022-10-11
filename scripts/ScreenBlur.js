@@ -9,11 +9,12 @@ class ScreenBlur{
     }
 
     draw(ctx){
-        if(this.frame>0){
+        if(this.frame>=0){
             console.log("bluring screen");
             
             //ctx.filter = 'blur('+(this.frame/ScreenBlur.FRAMES)*2.0+'rem)';
-            ctx.filter = "brightness("+(1.0 - this.frame/ScreenBlur.FRAMES)+")";
+            //ctx.filter = "brightness("+(1.0 - this.frame/ScreenBlur.FRAMES)+")";
+            ctx.globalAlpha = (1.0 - this.frame/ScreenBlur.FRAMES);
 
             this.frame -= 1;
         }

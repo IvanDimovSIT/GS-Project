@@ -16,7 +16,7 @@ function mouseUp(){
     if(!player.falling){
         const direction = new Vector(mousePos.x - document.getElementById('canvas').width/2 , mousePos.y - document.getElementById('canvas').height/2);
         console.log("jump:", direction);
-        normaliseVector(direction, MAX_JUMP*player.jump);
+        normaliseVector(direction, Player.MAX_JUMP*player.jump);
         player.falling = true;
         player.velocity.add(direction.x, direction.y);
         player.jump = 0;

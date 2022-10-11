@@ -1,7 +1,7 @@
 function main(){
     //game code
     if(isMouseDown && !player.falling){
-        player.jump += JUMP_INCREASE;
+        player.jump += Player.JUMP_INCREASE;
         if(player.jump > 1){
             player.jump = 1;
         }
