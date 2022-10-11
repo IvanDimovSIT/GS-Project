@@ -1,3 +1,4 @@
+let startGame;
 function main(){
     //game code
     if(isMouseDown && !player.falling){
@@ -45,6 +46,12 @@ function main(){
             screenBlur.begin(); 
         }
     });
+
+    let gameOver = false;
+    if(endStar.overlap(player)){
+        setWin(canvas);
+        gameOver = true;
+    }
     
     /////////////////////////graphics code////////////////////////
     let drawCount = 0;
@@ -108,6 +115,11 @@ function main(){
         }
     });
     
+    //draw star
+    if(endStar.overlap(screen)){
+        drawCount += 1;
+        endStar.draw(ctx, canvas, focusPoint);
+    }
 
     if(isMouseDown && !player.falling){
         drawJumpBar(ctx, canvas, mousePos, player.jump);
@@ -115,6 +127,11 @@ function main(){
 
     drawScore(player.score);
     console.log("drawing: ", drawCount, " objects");
+
+    if(gameOver){
+        score.innerHTML = "You win!\nScore:"+player.score;
+        clearInterval(startGame);
+    }
 }
 
 //for testing
@@ -127,5 +144,5 @@ document.addEventListener("keydown", event => {
 });
 
 window.onload = function() {
-    const startGame = setInterval(main, 1000/60);
+    startGame = setInterval(main, 1000/60);
 }

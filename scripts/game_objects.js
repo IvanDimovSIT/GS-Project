@@ -71,7 +71,7 @@ const walls = [
     new Wall( 1200, -7800, 100, 900, wallPattern3),
     new Wall( 1300, -7500, 50, 100, wallPattern3),
     new Wall( 1300, -7200, 100, 100, wallPattern3),
-    new Wall( 1500, -7350, 300, 80, wallPattern3)
+    new Wall( 1500, -7370, 300, 40, wallPattern3)
 ];
 
 const decorations = [
@@ -98,7 +98,11 @@ let coins = [
     new Coin(1300, -2900),
     new Coin(400, -3200),
     new Coin(400, -3700),
-    new Coin(1600, -4100)
+    new Coin(1600, -4100),
+    new Coin(2300, -6300),
+    new Coin(3100, -5300),
+    new Coin(2400, -6800),
+    new Coin(1850, -6900)
 ];
 for(let i = 0; i<3; i++){
     for(let j=0; j<4; j++){
@@ -136,6 +140,8 @@ const savePoints = [
     new SavePoint(600, -3300),
     new SavePoint(800, -5000)
 ];
+
+const endStar = new Star(2500, -8000);
 
 const screenBlur = new ScreenBlur();
 
