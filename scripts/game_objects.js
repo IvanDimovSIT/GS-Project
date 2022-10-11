@@ -15,6 +15,10 @@ const wallImage3 = new Image();
 wallImage3.src = "assets/wall3.png";
 const wallPattern3 = ctx.createPattern(wallImage3, "repeat");
 
+const backWallImage = new Image();
+backWallImage.src = "assets/backWall.jpg";
+const backWallPattern = ctx.createPattern(backWallImage, "repeat");
+
 
 const walls = [
     new Wall( -600, 250, 1200, 200, wallPattern),
@@ -73,7 +77,8 @@ const walls = [
 const decorations = [
     new Cloud(100, -450, 200, 100, Math.PI/6),
     new Cloud(200, -1200, 300, 200, Math.PI/10),
-    new Cloud(-200, -2000, 200, 120, 2.2*Math.PI)
+    new Cloud(-200, -2000, 200, 120, 2.2*Math.PI),
+    new Wall(1700, -7700, 1600, 2900, backWallPattern)
 ];
 
 let coins = [
